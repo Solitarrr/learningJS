@@ -15,10 +15,10 @@
 
 "use strict";
 
-//First task
+//First task from practice 1
 const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
 
-//Second task
+//Second task from practice 1
 const personalMovieDB = {
     "count": numberOfFilms,
     "movies": {},
@@ -27,7 +27,19 @@ const personalMovieDB = {
     "privat": false
 };
 
-// //Third task
+//Third task from practice 2
+if (personalMovieDB.count < 10){
+    console.log('Просмотрено довольно мало фильмов'); //или через alert
+} else if ((personalMovieDB.count >= 10) && (personalMovieDB.count < 30)) {
+    console.log('Вы классический зритель');
+} else if (personalMovieDB.count >= 30) {
+    console.log('Вы киноман');
+} else {
+    console.log('Произошла ошибка');
+}
+
+
+// //Third task from practice 1
 // const a = prompt("Один из последних просмотренных фильмов?", ""),
 //       b = +prompt("На сколько оцените его?", ""),
 //       c = prompt("Один из последних просмотренных фильмов?", ""),
@@ -38,10 +50,51 @@ const personalMovieDB = {
 
 // console.log(personalMovieDB);
 
-
+//First task from practice 2
 for (let i = 0; i < numberOfFilms; i++){
     let a = prompt("Один из последних просмотренных фильмов?", "");
     let b = +prompt("На сколько оцените его?", "");
-    personalMovieDB.movies[a] = b;
+    
+    //Second task from practice 2 (отмена prompt это null)
+    if (a != null && b != null && a != '' && b != '' && a.length < 50){
+        personalMovieDB.movies[a] = b;
+        console.log('done');
+    } else {
+        console.log('error');
+        i--; //дикримент
+    }    
 }
+
+// //Второй вариант написания цикла
+// let i = 0;
+// while (i < numberOfFilms){
+//     let a = prompt("Один из последних просмотренных фильмов?", "");
+//     let b = +prompt("На сколько оцените его?", "");
+    
+//     //Second task from practice 2 (отмена prompt это null)
+//     if (a != null && b != null && a != '' && b != '' && a.length < 50){
+//         personalMovieDB.movies[a] = b;
+//         console.log('done');
+//     } else {
+//         console.log('error');
+//         i--; //дикримент
+//     }
+//     i++;    
+// }
+// let i = 0;
+// do {
+//     let a = prompt("Один из последних просмотренных фильмов?", "");
+//     let b = +prompt("На сколько оцените его?", "");
+    
+//     //Second task from practice 2 (отмена prompt это null)
+//     if (a != null && b != null && a != '' && b != '' && a.length < 50){
+//         personalMovieDB.movies[a] = b;
+//         console.log('done');
+//     } else {
+//         console.log('error');
+//         i--; //дикримент
+//     }
+//     i++;    
+// } while (i < numberOfFilms)
+
 console.log(personalMovieDB);
