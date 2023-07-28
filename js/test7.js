@@ -14,6 +14,14 @@ function calculateVolumeAndArea(edge) {
 //calculateVolumeAndArea(5);
 
 // Место для второй задачи
-function getCoupeNumber() {
-
+function getCoupeNumber(seat) {
+    if (typeof (seat) !== 'number' || seat < 0 || !Number.isInteger(seat)){
+        return "Ошибка. Проверьте правильность введенного номера места";  
+    } else if (seat === 0 || seat > 36) {
+        return "Таких мест в вагоне не существует";
+    } else {
+        return Math.ceil(seat / 4);
+    }
 }
+
+getCoupeNumber(33);
